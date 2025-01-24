@@ -19,7 +19,6 @@ def bing_web_search(query, count=5):
     
     if response.status_code == 200:
         data = response.json()
-        # Typically, 'webPages' -> 'value' holds search results
         web_pages = data.get("webPages", {}).get("value", [])
         return web_pages
     else:

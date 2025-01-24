@@ -1,11 +1,7 @@
-# app/db_connection.py
 import mysql.connector
 import os
 from datetime import datetime
 
-# Optionally, load environment variables from .env
-# from dotenv import load_dotenv
-# load_dotenv()
 
 def get_connection():
     return mysql.connector.connect(
