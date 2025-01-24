@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Autonomous Research Assistant</title>
+</head>
+<body>
+    <h1>Autonomous Research Assistant</h1>
+    
+    <!-- Simple form posting to /search (the Flask route) -->
+    <form action="/search" method="POST">
+        <input type="text" name="query" placeholder="Enter your topic" required />
+        <button type="submit">Search</button>
+    </form>
+
+    {% if summary %}
+        <h2>Summary</h2>
+        <p>{{ summary }}</p>
+        
+        <h3>References</h3>
+        <ul>
+            {% for ref in references %}
+                <li>{{ ref }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

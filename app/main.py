@@ -1,5 +1,4 @@
-# app/main.py
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from app.agent import Agent
 from app.db_connection import get_results
 from dotenv import load_dotenv
@@ -8,6 +7,36 @@ load_dotenv()
 
 app = Flask(__name__)
 agent = Agent()
+
+
+# ---------- Frontend Routes ----------
+
+@app.route("/", methods=["GET"])
+def index():
+    """
+    Renders a simple HTML form (index.html) where the user can submit a query.
+    """
+    return render_template("index.html")
+
+@app.route("/search", methods=["POST"])
+def search():
+    """
+    Handles the POST from the HTML form, calls the agent, 
+    and re-renders index.html with results.
+    """
+    query_text = request.form.get("query")
+    if not query_text:
+        return render_template("index.html", summary="No query provided", references=[])
+
+    result = agent.handle_query(query_text)
+    
+    summary = result.get("summary", "No summary returned.")
+    references = result.get("references", [])
+
+    return render_template("index.html", summary=summary, references=references)
+
+
+# ---------- API Endpoints (JSON) ----------
 
 @app.route("/api/search", methods=["POST"])
 def search_endpoint():
@@ -32,7 +61,6 @@ def get_results_endpoint(query_id):
     if not rows:
         return jsonify({"message": "No results found for this query_id"}), 404
     
-    # Return an array of results (though we typically store only one summary)
     response = []
     for row in rows:
         summary, references, timestamp = row
