@@ -1,4 +1,3 @@
-# app/agent.py
 from app.search_api import bing_web_search
 from app.summarizer import summarize_text
 from app.db_connection import save_query, save_result
