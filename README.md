@@ -25,7 +25,7 @@ Allowing both a REST API (for Postman or programmatic clients) and a web fronten
 ### Core Components:
 
 - Bing API; Using **Bing Search v7** that searches and returns top results in JSON form.
-- Web Scraper; Using **BeautifulSoup** to extract text from <p> tags. 
+- Web Scraper; Using **BeautifulSoup** to extract text. 
 - Summarizer; Using **T5-Small model** from Hugging Face that summarizes combined text (snippet + page).
 - Database; **MySQL** to store queries and results.
 
