@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Autonomous Research Assistant</title>
+  <!-- Link to our static styles.css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Autonomous Research Assistant</h1>
+  </header>
+
+  <!-- Main container for the page -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>
