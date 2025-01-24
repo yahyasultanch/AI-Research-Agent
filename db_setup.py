@@ -1,4 +1,3 @@
-# db_setup.py
 import mysql.connector
 import os
 from dotenv import load_dotenv
@@ -13,7 +12,6 @@ def create_tables():
     )
     cursor = conn.cursor()
 
-    # Create queries table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS queries (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -22,7 +20,6 @@ def create_tables():
     );
     """)
 
-    # Create results table
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS results (
         id INT AUTO_INCREMENT PRIMARY KEY,
