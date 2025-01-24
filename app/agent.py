@@ -71,7 +71,7 @@ class Agent:
         We'll keep it simple by returning the title or a short chunk.
         """
         try:
-            resp = requests.get(url, timeout=5)
+            resp = requests.get(url, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
 
