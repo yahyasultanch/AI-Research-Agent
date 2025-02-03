@@ -69,6 +69,10 @@ python -m app.main
 
 **Flask will start at http://127.0.0.1:5000**
 
+Here’s a quick snapshot of how the UI looks when running locally:
+
+![UI Screenshot](image/demo_image.jpg?raw=true "AI Research Agent UI")
+
 ## Acknowledgements:
 Microsoft Azure Bing Search V7 for adding intelligent search and returning relevant results: [https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.bingsearch?tab=overview]
 BeautifulSoup for Web Scraping: [https://www.crummy.com/software/BeautifulSoup/bs4/doc/]
